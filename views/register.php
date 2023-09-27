@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         strlen($_POST['username']) > 0 and
         strlen($_POST['password']) > 0
     ) {
-        //validacija ar egzistuoja jau toks useris/email
+        //tikriname ar egzistuoja toks useris
         try {
             $db->query(
                 sprintf(
@@ -31,7 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-<!-- registracijos įspėjimas -->
+
+
 <?php if ($message) : ?>
     <div class="alert alert-danger"><?= $message ?></div>
 <?php endif; ?>
