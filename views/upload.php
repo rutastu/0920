@@ -12,7 +12,7 @@ if (isset($_POST['link']) && isset($_POST['thumbnail']) && isset($_POST['title']
         $thumbnail = $db->real_escape_string($_POST['thumbnail']);
         $title = $db->real_escape_string($_POST['title']);
         $description = $db->real_escape_string($_POST['description']);
-        $category = intval($_POST['category']); // Ensure it's an integer
+        $category = intval($_POST['category']);
 
         // insertiname video detales i lentele
         $query = "INSERT INTO videos (url, thumbnail_url, name, description, category_id, user_id) VALUES (?, ?, ?, ?, ?, ?)";
