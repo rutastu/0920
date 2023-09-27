@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // Prisijungimo tikrinimas try/catch bloku pagalba
 try {
     $db = new mysqli('localhost', 'root', '', 'youtube');
@@ -44,12 +44,43 @@ if ($resultFromCategories->num_rows > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 
 <body>
-    <div class="container">
+    <header>
+        <div class="container mt-5 d-flex justify-content-end gap-3">
+            <!-- Jeigu vartotojas prisijungęs, atvaizduojami šie mygtukai: -->
+            <?php if (isset($_SESSION['user_id'])) : ?>
+                <a href="?page=upload" class="btn orange">Upload a video</a>
+                <a href="?page=logout" class="btn orange">Log Out</a>
+                <!-- Jeigu vartotojas neprisijungęs, atvaizduojami šie mygtukai: -->
+            <?php else : ?>
+                <a href="?page=login" class="btn orange">Log In</a>
+                <a href="?page=register" class="btn orange">Register</a>
+            <?php endif; ?>
+        </div>
+    </header>
+    <div class="container mt-5">
         <?php
+        $page = isset($_GET['page']) ? $_GET['page'] : false;
         switch ($page) {
+            case "login":
+                include './views/login.php';
+                break;
+            case "register":
+                include './views/register.php';
+                break;
+            case "player":
+                include './views/player.php';
+                break;
+            case "upload":
+                include './views/upload.php';
+                break;
+            case "logout":
+                session_destroy();
+                header('Location: ./');
+                break;
             default:
                 include './views/home.php';
         }
