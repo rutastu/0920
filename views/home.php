@@ -17,14 +17,14 @@ $offset = ($currentPage - 1) * $videosPerPage;
 $videos = array_slice($videos, $offset, $videosPerPage);
 ?>
 
-<div class="d-flex justify-content-center gap-3 mt-3">
+<div class="d-flex justify-content-center gap-5 mt-3">
     <?php foreach ($categories as $row) : ?>
-        <a href="?category=<?= $row['id'] ?>" class="btn btn-sm orange"><?= $row['name'] ?></a>
+        <a href="?category=<?= $row['id'] ?>" class="btn btn-danger text-decoration-none"><?= $row['name'] ?></a>
     <?php endforeach; ?>
 </div>
-<form class="input-group mt-3" method='POST' action="./">
+<form class="input-group mt-3 " method='POST' action="./">
     <input type="text" class="form-control" name="search">
-    <button class="btn orange">Search</button>
+    <button class="btn btn-danger">Search</button>
 </form>
 <div class="row mt-5">
     <?php
@@ -72,3 +72,9 @@ $videos = array_slice($videos, $offset, $videosPerPage);
         <?php endif; ?>
     </ul>
 </div>
+<style>
+    a {
+        font-size: 16pt;
+        font-weight: bold;
+    }
+</style>

@@ -46,13 +46,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="mt-3">
                 <label>Username:</label>
-                <input type="text" name="username" class="form-control" placeholder="Create username (max 20 symbols)">
+                <input type="text" name="username" class="form-control" placeholder="Create username">
             </div>
             <div class="mt-3">
                 <label>Password:</label>
-                <input type="password" name="password" class="form-control" placeholder="Create password (max 30 symbols)">
+                <input type="password" name="password" class="form-control" placeholder="Create password">
             </div>
-            <button class="btn btn-success mt-4">Register</button>
+            <button class="btn btn-danger mt-4">Register</button>
         </form>
     </div>
 </div>

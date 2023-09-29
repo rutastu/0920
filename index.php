@@ -46,18 +46,23 @@ if ($resultFromCategories->num_rows > 0) {
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
+<style>
+    body {
+        background-color: aliceblue;
+    }
+</style>
 
 <body>
     <header>
         <div class="container mt-5 d-flex justify-content-end gap-3">
             <!-- Jeigu vartotojas prisijungęs, atvaizduojami šie mygtukai: -->
             <?php if (isset($_SESSION['user_id'])) : ?>
-                <a href="?page=upload" class="btn orange">Upload a video</a>
-                <a href="?page=logout" class="btn orange">Log Out</a>
+                <a href="?page=upload" class="btn btn-danger">Upload a video</a>
+                <a href="?page=logout" class="btn btn-danger">Log Out</a>
                 <!-- Jeigu vartotojas neprisijungęs, atvaizduojami šie mygtukai: -->
             <?php else : ?>
-                <a href="?page=login" class="btn orange">Log In</a>
-                <a href="?page=register" class="btn orange">Register</a>
+                <a href="?page=login" class="btn btn-danger">Log In</a>
+                <a href="?page=register" class="btn btn-danger">Register</a>
             <?php endif; ?>
         </div>
     </header>
