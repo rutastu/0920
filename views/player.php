@@ -19,11 +19,11 @@ if (isset($_GET['id'])) {
     if ($result->num_rows > 0) {
         $video = $result->fetch_assoc();
 ?>
-        <h1 class="text-center"><?= $video['name'] ?></h1>
         <div class="container mt-5">
             <iframe width="840" height="472.5" src="<?= $video['url'] ?>" frameborder="0" allow="autoplay" allowfullscreen></iframe>
             <div class="container mt-5"></div>
-            <div class="col-6 text-justify">
+            <h1 class="text-right"><?= $video['name'] ?></h1>
+            <div class="col-6 text-justify mt-5">
                 <h5>Description:</h5>
                 <p><?= nl2br($video['description']) ?></p>
                 <h5>Uploaded by:</h5>
